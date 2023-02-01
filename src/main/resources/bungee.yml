@@ -1,0 +1,6 @@
+name: SpecifyChat
+version: '${project.version}'
+main: net.kinomc.specifychat.SpecifyChat
+description: Specify a command to open a chat channel
+author: vlouboos
+softdepend: ["LuckPerms"]
