@@ -25,7 +25,7 @@
 #                                                                                                              #
 ################################################################################################################
 StaffChat:
-  name: "&9&nStaff&f&nChat"
+  name: "&9&lStaff&f&lChat"
   format: "%name%&7 » %player%&7: &f%message%"
   enableColorChar: true
   commands:
@@ -37,7 +37,7 @@ StaffChat:
     - group.mod
     - group.admin
 AdminChat:
-  name: "&c&nAdmin&f&nChat"
+  name: "&c&lAdmin&f&lChat"
   format: "%name%&7 » %player%&7: &f%message%"
   enableColorChar: true
   commands:
@@ -46,7 +46,7 @@ AdminChat:
   permissions:
     - group.admin
 TeamChat:
-  name: "&a&nTeam&f&nChat"
+  name: "&a&lTeam&f&lChat"
   format: "%name%&7 » %player%&7: &f%message%"
   enableColorChar: true
   commands:

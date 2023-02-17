@@ -24,7 +24,7 @@ public class PluginCommand extends Command {
                     SpecifyChat.instance.reloadConfig(sender, true);
                 } else {
                     sender.sendMessage(new TextComponent("" + ChatColor.AQUA + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
-                    sender.sendMessage(new TextComponent(ChatColor.YELLOW + "Running" + ChatColor.DARK_AQUA + " SpecifyChat-v1.0-SNAPSHOT" + ChatColor.YELLOW + " by vlouboos licenced to mc.kinomc.net"));
+                    sender.sendMessage(new TextComponent(ChatColor.YELLOW + "Running" + ChatColor.DARK_AQUA + " SpecifyChat-" + SpecifyChat.instance.getDescription().getVersion() + ChatColor.YELLOW + " by vlouboos licenced to mc.kinomc.net"));
                     sender.sendMessage(new TextComponent());
                     sender.sendMessage(new TextComponent(ChatColor.YELLOW + "/specifychat info" + ChatColor.GRAY + " - Show plugin info."));
                     sender.sendMessage(new TextComponent(ChatColor.YELLOW + "/specifychat help" + ChatColor.GRAY + " - Display this screen."));
@@ -39,7 +39,7 @@ public class PluginCommand extends Command {
 
     private void showInfo(CommandSender sender) {
         sender.sendMessage(new TextComponent("" + ChatColor.AQUA + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
-        sender.sendMessage(new TextComponent(ChatColor.YELLOW + "Running" + ChatColor.DARK_AQUA + " SpecifyChat-v1.0-SNAPSHOT" + ChatColor.YELLOW + " by vlouboos licenced to mc.kinomc.net"));
+        sender.sendMessage(new TextComponent(ChatColor.YELLOW + "Running" + ChatColor.DARK_AQUA + " SpecifyChat-" + SpecifyChat.instance.getDescription().getVersion() + ChatColor.YELLOW + " by vlouboos licenced to mc.kinomc.net"));
         sender.sendMessage(new TextComponent(ChatColor.YELLOW + "Use" + ChatColor.DARK_AQUA + " /specifychat help" + ChatColor.YELLOW + " to get help"));
         sender.sendMessage(new TextComponent("" + ChatColor.AQUA + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
     }

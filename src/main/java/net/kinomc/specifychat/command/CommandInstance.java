@@ -26,7 +26,7 @@ public class CommandInstance extends Command {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
-        boolean pass = sender instanceof ProxiedPlayer;
+        boolean pass = !(sender instanceof ProxiedPlayer);
         if (!pass) {
             for (String permission : channel.getPermissions()) {
                 if (sender.hasPermission(permission)) {

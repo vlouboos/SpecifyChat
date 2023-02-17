@@ -5,7 +5,7 @@
 
     <groupId>net.kinomc</groupId>
     <artifactId>SpecifyChat</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>SpecifyChat</name>
