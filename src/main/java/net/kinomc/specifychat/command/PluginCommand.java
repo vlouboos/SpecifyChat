@@ -1,6 +1,7 @@
 package net.kinomc.specifychat.command;
 
 import net.kinomc.specifychat.SpecifyChat;
+import net.kinomc.specifychat.util.ConfigUtil;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -23,24 +24,25 @@ public class PluginCommand extends Command {
                 } else if (args[0].toLowerCase().contains("reload")) {
                     SpecifyChat.instance.reloadConfig(sender, true);
                 } else {
-                    sender.sendMessage(new TextComponent("" + ChatColor.AQUA + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
-                    sender.sendMessage(new TextComponent(ChatColor.YELLOW + "Running" + ChatColor.DARK_AQUA + " SpecifyChat-" + SpecifyChat.instance.getDescription().getVersion() + ChatColor.YELLOW + " by vlouboos licenced to mc.kinomc.net"));
+                    sender.sendMessage(new TextComponent(String.valueOf(ChatColor.AQUA) + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
+                    sender.sendMessage(new TextComponent(ChatColor.YELLOW + "Running" + ChatColor.DARK_AQUA + " SpecifyChat-" + SpecifyChat.instance.getDescription().getVersion() + ChatColor.YELLOW + " by vlouboos"));
                     sender.sendMessage(new TextComponent());
                     sender.sendMessage(new TextComponent(ChatColor.YELLOW + "/specifychat info" + ChatColor.GRAY + " - Show plugin info."));
                     sender.sendMessage(new TextComponent(ChatColor.YELLOW + "/specifychat help" + ChatColor.GRAY + " - Display this screen."));
                     sender.sendMessage(new TextComponent(ChatColor.YELLOW + "/specifychat reload" + ChatColor.GRAY + " - Reload plugin."));
-                    sender.sendMessage(new TextComponent("" + ChatColor.AQUA + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
+                    sender.sendMessage(new TextComponent(String.valueOf(ChatColor.AQUA) + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
                 }
             }
         } else {
-            sender.sendMessage(new TextComponent(ChatColor.WHITE + "Unknown command. Type \"/help\" for help."));
+            sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', ConfigUtil.getMessage(sender, "No-Permission"))));
         }
     }
 
     private void showInfo(CommandSender sender) {
-        sender.sendMessage(new TextComponent("" + ChatColor.AQUA + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
-        sender.sendMessage(new TextComponent(ChatColor.YELLOW + "Running" + ChatColor.DARK_AQUA + " SpecifyChat-" + SpecifyChat.instance.getDescription().getVersion() + ChatColor.YELLOW + " by vlouboos licenced to mc.kinomc.net"));
+        // I just have no idea on how to design the message...
+        sender.sendMessage(new TextComponent(String.valueOf(ChatColor.AQUA) + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
+        sender.sendMessage(new TextComponent(ChatColor.YELLOW + "Running" + ChatColor.DARK_AQUA + " SpecifyChat-" + SpecifyChat.instance.getDescription().getVersion() + ChatColor.YELLOW + " by vlouboos"));
         sender.sendMessage(new TextComponent(ChatColor.YELLOW + "Use" + ChatColor.DARK_AQUA + " /specifychat help" + ChatColor.YELLOW + " to get help"));
-        sender.sendMessage(new TextComponent("" + ChatColor.AQUA + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
+        sender.sendMessage(new TextComponent(String.valueOf(ChatColor.AQUA) + ChatColor.STRIKETHROUGH + "---------------------------------------------"));
     }
 }

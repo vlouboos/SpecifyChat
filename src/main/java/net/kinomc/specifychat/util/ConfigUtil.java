@@ -2,12 +2,14 @@ package net.kinomc.specifychat.util;
 
 import net.kinomc.specifychat.SpecifyChat;
 import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.Date;
 import java.util.logging.Level;
 
 public class ConfigUtil {
@@ -15,6 +17,7 @@ public class ConfigUtil {
         return getConfig(new File(SpecifyChat.instance.getDataFolder(), file));
     }
 
+    @SuppressWarnings("all")
     private static Configuration getConfig(File file) {
         if (!file.exists()) {
             InputStream in = SpecifyChat.instance.getResourceAsStream(file.getName());
@@ -49,6 +52,12 @@ public class ConfigUtil {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String getMessage(CommandSender sender, String path) {
+        return getConfig("messages.yml").getString(path, path)
+                .replace("%player%", PlayerUtil.getSenderName(sender))
+                .replace("%time%", SpecifyChat.instance.dateFormat.format(new Date()));
     }
 
     private static ConfigurationProvider getProvider() {

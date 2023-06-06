@@ -1,0 +1,19 @@
+################################################################################################################
+#                                                                                                              #
+# Specify Chat 2023® by vlouboos                                                                               #
+#                                                                                                              #
+# messages.yml                                                                                                 #
+#                                                                                                              #
+# Color codes are enabled with character '&'.                                                                  #
+#                                                                                                              #
+# Placeholders:                                                                                                #
+#   %name% - the name of channel (valid only in a few messages)                                                #
+#   %player% - the name of sender (support LuckPerms)                                                          #
+#   %time% - the time that the command was executed.                                                           #
+#                                                                                                              #
+################################################################################################################
+Command-Executed-By-Player-Only: '&cYou must be a player to execute this command!'
+No-Permission: '&fUnknown command. Type "/help" for help.'
+Joined-Channel: '&aYou are now in %name%.'
+Channel-Not-Found: '&cNo channel named &e"%name%"&c found!'
+General-Channel-Name: '&e&lGeneral&f&lChat'

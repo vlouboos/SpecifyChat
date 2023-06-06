@@ -36,7 +36,7 @@ public class CommandInstance extends Command {
             }
         }
         if (!pass) {
-            sender.sendMessage(new TextComponent(ChatColor.WHITE + "Unknown command. Type \"/help\" for help."));
+            sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', "No-Permission")));
         } else {
             if (args.length == 0) {
                 sender.sendMessage(new TextComponent(ChatColor.RED + "Usage: /" + channel.getCommands().get(0) + " <Message>"));
@@ -45,57 +45,16 @@ public class CommandInstance extends Command {
                 for (String argument : args) {
                     sb.append(" ").append(argument);
                 }
+                // Format
                 String message = channel.getFormat()
                         .replace("%name%", channel.getName())
                         .replace("%player%", PlayerUtil.getSenderName(sender))
-                        .replace("%time%", SpecifyChat.instance.dateFormat.format(new Date()))
-                        .replace("&r", "\247r")
-                        .replace("&0", "\2470")
-                        .replace("&1", "\2471")
-                        .replace("&2", "\2472")
-                        .replace("&3", "\2473")
-                        .replace("&4", "\2474")
-                        .replace("&5", "\2475")
-                        .replace("&6", "\2476")
-                        .replace("&7", "\2477")
-                        .replace("&8", "\2478")
-                        .replace("&9", "\2479")
-                        .replace("&a", "\247a")
-                        .replace("&b", "\247b")
-                        .replace("&c", "\247c")
-                        .replace("&d", "\247d")
-                        .replace("&e", "\247e")
-                        .replace("&f", "\247f")
-                        .replace("&l", "\247l")
-                        .replace("&n", "\247n")
-                        .replace("&o", "\247o")
-                        .replace("&k", "\247k")
-                        .replace("&m", "\247m")
-                        .replace("%message%", sb.substring(1));
-                if (channel.enableChatColor()) {
-                    message = message.replace("&r", "\247r")
-                            .replace("&0", "\2470")
-                            .replace("&1", "\2471")
-                            .replace("&2", "\2472")
-                            .replace("&3", "\2473")
-                            .replace("&4", "\2474")
-                            .replace("&5", "\2475")
-                            .replace("&6", "\2476")
-                            .replace("&7", "\2477")
-                            .replace("&8", "\2478")
-                            .replace("&9", "\2479")
-                            .replace("&a", "\247a")
-                            .replace("&b", "\247b")
-                            .replace("&c", "\247c")
-                            .replace("&d", "\247d")
-                            .replace("&e", "\247e")
-                            .replace("&f", "\247f")
-                            .replace("&l", "\247l")
-                            .replace("&n", "\247n")
-                            .replace("&o", "\247o")
-                            .replace("&k", "\247k")
-                            .replace("&m", "\247m");
-                }
+                        .replace("%time%", SpecifyChat.instance.dateFormat.format(new Date()));
+                // Translate format's color code
+                message = ChatColor.translateAlternateColorCodes('&', message);
+                // Translate message's color code
+                String finalMessage = sb.substring(1);
+                message = message.replace("%message%", channel.enableChatColor() ? ChatColor.translateAlternateColorCodes('&', finalMessage) : finalMessage);
                 for (ProxiedPlayer player : SpecifyChat.instance.getProxy().getPlayers()) {
                     if (player == sender) continue;
                     boolean hasPermission = false;
